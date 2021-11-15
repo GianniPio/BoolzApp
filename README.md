@@ -1,2 +1,2 @@
-# BoolzApp
+# vue-boolzapp
 Whatsapp
