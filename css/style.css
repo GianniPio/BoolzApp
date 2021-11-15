@@ -6,16 +6,15 @@
     box-sizing: border-box;
 }
 
+.text {
+    font-weight: bold;
+}
+
 img {
-    border-radius: 50%;
-    width: 10%;
     height: auto;
     float: left;
     margin-right: 15px;
-}
-
-.text {
-    font-weight: bold;
+    border-radius: 50%;
 }
 
 .icon {
@@ -67,6 +66,10 @@ img {
     float: left;
 }
 
+#box_left img {
+    width: 10%;
+}
+
 .color_section_above {
     background-color: #eaeaea;
 }
@@ -115,6 +118,10 @@ input {
     float: right;
     background-image: url("https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Background.max-2800x2800.jpg");
     background-size: 100%;
+}
+
+#box_right img {
+    width: 7%;
 }
 
 
