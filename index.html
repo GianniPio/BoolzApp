@@ -64,11 +64,17 @@
                         <img :src="contact.avatar" alt="contact.name"> 
                     </figure>
 
-                    <!--Nome contatto -->
+                    <!--Contatto rubrica -->
                     <div class="text">
                         <p>{{contact.name}}</p>
-                        <span class="date_last_message" v-for="element in contact.messages">{{element.date}}</span>
+                        <span>{{contact.messages[contact.messages.length-1].text}}</span>
                     </div>
+
+                    <!-- Data ultimo messaggio -->
+                    <div>
+                        <span class="date_last_message">{{contact.messages[contact.messages.length-1].date}}</span>
+                    </div>
+
                 </div>
             </section>
 
@@ -76,9 +82,10 @@
         </section>
 
         <!-- Sezione dei messaggi -->
-        <section id="box_right">
+        <section id="box_right" v-for="contact in contacts" v-if="contact.visible">
 
-            <section class="section_rett color_section_above" v-for="contact in contacts" v-if="contact.visible === true">
+            <!-- Contatto -->
+            <section class="section_rett color_section_above">
 
                 <!-- Immagine contatto -->
                 <figure>
@@ -89,7 +96,13 @@
                 <div class="text">
                     <p>{{contact.name}}</p>
                 </div>
-                <span>Ultimo accesso oggi alle 7:30</span>
+                <span>Ultimo accesso {{contact.messages[contact.messages.length-1].date}}</span>
+            </section>
+
+            <!-- Chat -->
+            <section id="chat">
+                <div :class="{'sent' : contact.messages.status === 'sent'}" >{{contact.messages.text}}</div>
+                <div :class="{'received' : contact.messages.status === 'received'}">{{contact.messages.text}}</div>
             </section>
         </section>
 

@@ -122,6 +122,10 @@ input {
     margin-top: 4%;
 }
 
+#contact > .section_rett {
+    border-top: 1px solid #b7bbbd;
+}
+
 .date_last_message {
     color: #b7bbbd;
     position: relative;
@@ -140,6 +144,24 @@ input {
 
 #box_right img {
     width: 7%;
+}
+
+.sent {
+    background-color: #d5f9ba;
+    float: right;
+}
+
+.received {
+    float: left;
+    background-color:white ;
+}
+
+.sent, .received {
+    min-height: 50px;
+    min-width: 400px;
+    border-radius: 10px;
+    display: inline-block;
+
 }
 
 
