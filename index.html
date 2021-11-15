@@ -25,12 +25,12 @@
 
                 <!-- Mia immagine -->
                 <figure>
-                    <img src="img/avatar_1.jpg" alt=""> 
+                    <img src="img/avatar_io.jpg" alt="Mia foto"> 
                 </figure>
 
                 <!-- Mio nome -->
-                <div class="text">
-                    <p >Gianni Pio Pellegrino</p> 
+                <div class="text ">
+                    <p class="float_left">Gianni Pio Pellegrino</p> 
                 </div>
 
                 <div class="icon">
@@ -42,9 +42,11 @@
 
             <!-- Sezione notifiche -->
             <section class="section_rett color_notif">
-
-
-
+                <i class="fas fa-bell-slash"></i>
+                <div class="text">
+                    <p>Ricevi notifiche di nuovi messaggi</p>
+                    <span>Attiva notifiche desktop</span>
+                </div>
             </section>
 
             <!-- Sezione ricerca -->
@@ -54,18 +56,18 @@
             </section>
 
             <!-- Sezione contatti -->
-            <section id="contact" placeholder="Ricerca">
+            <section id="contact">
                 
-                <div class="section_rett">
+                <div class="section_rett" v-for="contact in contacts">
                         <!-- Immagine contatto -->
                     <figure>
-                        <img src="img/avatar_2.jpg" alt=""> 
+                        <img :src="contact.avatar" alt="contact.name"> 
                     </figure>
 
                     <!--Nome contatto -->
                     <div class="text">
-                        <p>Roberto</p>
-                        <span>Ultimo accesso oggi alle 7:30</span>
+                        <p>{{contact.name}}</p>
+                        <span class="date_last_message" v-for="element in contact.messages">{{element.date}}</span>
                     </div>
                 </div>
             </section>
@@ -76,18 +78,18 @@
         <!-- Sezione dei messaggi -->
         <section id="box_right">
 
-            <section class="section_rett color_section_above">
+            <section class="section_rett color_section_above" v-for="contact in contacts" v-if="contact.visible === true">
 
                 <!-- Immagine contatto -->
                 <figure>
-                    <img src="img/avatar_2.jpg" alt=""> 
+                    <img :src="contact.avatar" :alt="contact.name"> 
                 </figure>
 
                 <!--Nome contatto -->
                 <div class="text">
-                    <p>Roberto</p>
-                    <span>Ultimo accesso oggi alle 7:30</span>
+                    <p>{{contact.name}}</p>
                 </div>
+                <span>Ultimo accesso oggi alle 7:30</span>
             </section>
         </section>
 

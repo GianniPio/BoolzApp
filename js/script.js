@@ -5,7 +5,7 @@ var page = new Vue (
             contacts: [
                 {
                     name: 'Michele',
-                    avatar: '_1',
+                    avatar: 'img/avatar_1.jpg',
                     visible: true,
                     messages: 
                     [
@@ -29,8 +29,8 @@ var page = new Vue (
 
                 {
                     name: 'Fabio',
-                    avatar: '_2',
-                    visible: true,
+                    avatar: 'img/avatar_2.jpg',
+                    visible: false,
                     messages: 
                     [
                         {
@@ -53,8 +53,8 @@ var page = new Vue (
 
                 {
                     name: 'Samuele',
-                    avatar: '_3',
-                    visible: true,
+                    avatar: 'img/avatar_3.jpg',
+                    visible: false,
                     messages: 
                     [
                         {
@@ -77,8 +77,8 @@ var page = new Vue (
 
                 {
                     name: 'Luisa',
-                    avatar: '_4',
-                    visible: true,
+                    avatar: 'img/avatar_4.jpg',
+                    visible: false,
                     messages: 
                     [
                         {
@@ -94,6 +94,7 @@ var page = new Vue (
                     ],
                 },
             ]
-         }
+        },
+
     }
 )
