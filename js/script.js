@@ -98,6 +98,13 @@ var page = new Vue (
 
         method: {
 
+            changeVisible(index) {
+
+                if(this.contacts[index].visible === false)
+
+                this.contacts[index].visible = true;
+                console.log(this.contacts[index].visible);
+            }
 
         }
 

@@ -174,6 +174,7 @@ img {
     float: right;
     background-image: url("https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Background.max-2800x2800.jpg");
     background-size: 100%;
+    position: relative;
 }
 
 #box_right img {
@@ -218,6 +219,32 @@ img {
     font-size: 12px;
     font-weight: bold;
     color: grey;
+}
+
+#invio {
+    background-color: #f3eee9;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+    align-items: center;
+}
+
+#invio input {
+    height: 70%;
+    width: 90%;
+    border: none;
+    border-radius: 5px;
+    padding-left: 20px;
+}
+
+#invio i {
+    padding-top: 10px;
+    color: #6a7376;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 #contact .section_rett:hover {
