@@ -12,13 +12,11 @@
 
 img {
     height: auto;
-    float: left;
     margin-right: 15px;
     border-radius: 50%;
 }
 
 .icon {
-    float: right;
     color: #b1b1b1;
     font-size: 31px;
     margin-top: 5%;
@@ -31,10 +29,16 @@ img {
     height: 12%;
     width: 100%;
     padding: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.float_left {
-    float: left;
+.dx {
+    justify-content: start;
+}
+
+.icon i {
+    cursor: pointer;
 }
 
 /* tag per lo sfondo */
@@ -92,7 +96,6 @@ img {
     color: #8ddafc;
     font-size: 35px;
     padding: 20px;
-    float: left;
     margin-right: 10px;
 }
 
@@ -103,10 +106,9 @@ img {
     background-color: #fafafa;
 }
 
-input {
+#ricerca input {
     height: 100%;
     width: 90%;
-    float: right;
     border: 1px solid lightgray;
     border-left: none;
 }
@@ -128,9 +130,6 @@ input {
 
 .date_last_message {
     color: #b7bbbd;
-    position: relative;
-    top: -47px;
-    left: 64%;
 }
 
 /* tag sezione delle chat */
@@ -146,22 +145,29 @@ input {
     width: 7%;
 }
 
+#chat {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
 .sent {
     background-color: #d5f9ba;
-    float: right;
+    margin-left: 60%;
+    margin-right: 10%;
 }
 
 .received {
-    float: left;
-    background-color:white ;
+    background-color:white;
+    margin-left: 10%;
+    margin-right: 60%;
 }
 
 .sent, .received {
     min-height: 50px;
-    min-width: 400px;
+    max-width: 300px;
     border-radius: 10px;
-    display: inline-block;
-
+    margin-top: 10px;
 }
 
 
