@@ -129,11 +129,18 @@
 
                 <!-- Messaggi -->
                     <div v-for="element, i in contact.messages" :key="i" v-if="element.status === 'sent'">
-                       <p class="sent">{{element.text}}</p>
+                       <div class="sent">
+                           <p class="message">{{element.text}}</p>
+                           <p class="data">{{element.date}}</p>
+                        </div>
+                       
                     </div>
 
                     <div v-else="element.status === 'received'" >
-                        <p class="received">{{element.text}}</p>
+                        <div class="received">
+                            <p class="message">{{element.text}}</p>
+                            <p class="data">{{element.date}}</p>
+                         </div>
                     </div>
 
             </section>
