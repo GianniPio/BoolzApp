@@ -6,7 +6,7 @@ var page = new Vue (
                 {
                     name: 'Michele',
                     avatar: 'img/avatar_1.jpg',
-                    visible: true,
+                    visible: false,
                     messages: 
                     [
                         {
@@ -78,7 +78,7 @@ var page = new Vue (
                 {
                     name: 'Luisa',
                     avatar: 'img/avatar_4.jpg',
-                    visible: false,
+                    visible: true,
                     messages: 
                     [
                         {
@@ -95,6 +95,11 @@ var page = new Vue (
                 },
             ]
         },
+
+        method: {
+
+
+        }
 
     }
 )

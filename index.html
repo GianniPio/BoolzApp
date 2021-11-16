@@ -36,7 +36,7 @@
 
                     <!-- Mio nome -->
                     <div class="text">
-                        <p class="name_users">Gianni Pio Pellegrino</p> 
+                        <p class="name_users">Khal_Gianni</p> 
                     </div>
 
                  <!-- icone -->
@@ -62,13 +62,13 @@
             <!-- Sezione ricerca -->
             <section id="ricerca">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Cerca o inizia una nuova chat">
+                <input type="text" placeholder="Cerca o inizia una nuova chat" id="barra_ricerca">
             </section>
 
             <!-- Sezione contatti -->
             <section id="contact">
                 
-                <div class="section_rett" v-for="contact in contacts">
+                <div class="section_rett" v-for="contact, i in contacts" :key="i" @click="changeVisible(i)">
 
                     <div>
                         <!-- Immagine contatto -->
