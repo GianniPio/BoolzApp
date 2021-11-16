@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
     <title>Boolzapp</title>
@@ -24,25 +27,25 @@
             <section class="section_rett color_section_above">
 
                 <!-- Parte di destra -->
-                <div class="dx">
+                <div>
 
                     <!-- Mia immagine -->
-                    <figure>
+                    <figure class="icon_avatar">
                         <img src="img/avatar_io.jpg" alt="Mia foto"> 
                     </figure>
 
                     <!-- Mio nome -->
-                    <div class="text ">
-                        <p class="float_left">Gianni Pio Pellegrino</p> 
+                    <div class="text">
+                        <p class="name_users">Gianni Pio Pellegrino</p> 
                     </div>
 
-                </div>
+                 <!-- icone -->
+                    <div class="icon">
+                        <i class="fas fa-circle-notch"></i>
+                        <i class="fas fa-comment-alt"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
 
-                <!-- icone -->
-                <div class="icon">
-                    <i class="fas fa-circle-notch"></i>
-                    <i class="fas fa-comment-alt"></i>
-                    <i class="fas fa-ellipsis-v"></i>
                 </div>
 
             </section>
@@ -50,7 +53,7 @@
             <!-- Sezione notifiche -->
             <section class="section_rett color_notif">
                 <i class="fas fa-bell-slash"></i>
-                <div class="text">
+                <div class="text text_notifiche">
                     <p>Ricevi notifiche di nuovi messaggi</p>
                     <span>Attiva notifiche desktop</span>
                 </div>
@@ -67,24 +70,26 @@
                 
                 <div class="section_rett" v-for="contact in contacts">
 
-                    <div class="dx">
+                    <div>
                         <!-- Immagine contatto -->
-                        <figure>
+                        <figure class="icon_avatar">
                             <img :src="contact.avatar" alt="contact.name"> 
                         </figure>
 
                         <!--Contatto rubrica -->
-                        <div class="text">
+                        <div class="text name_contact">
                             <p>{{contact.name}}</p>
                             <span>{{contact.messages[contact.messages.length-1].text}}</span>
-                        </div> 
+                        </div>
+
+                        <!-- Data ultimo messaggio -->
+                        <div>
+                            <span class="date_last_message">{{contact.messages[contact.messages.length-1].date}}</span>
+                        </div>
                     </div>
                         
 
-                    <!-- Data ultimo messaggio -->
-                    <div>
-                        <span class="date_last_message">{{contact.messages[contact.messages.length-1].date}}</span>
-                    </div>
+                    
 
                 </div>
             </section>
@@ -98,7 +103,7 @@
             <!-- Contatto -->
             <section class="section_rett color_section_above">
 
-                <div class="dx">
+                <div>
 
                     <!-- Immagine contatto -->
                     <figure>
@@ -106,19 +111,17 @@
                     </figure>
 
                     <!--Nome contatto e ultimo accesso-->
-                    <div class="text">
+                    <div class="text name_contact">
                         <p>{{contact.name}}</p>
                         <span>Ultimo accesso {{contact.messages[contact.messages.length-1].date}}</span>
                     </div>
 
                 </div>
 
-                
-
                 <!-- icone -->
                 <div class="icon">
-                    <i class="fas fa-circle-notch"></i>
-                    <i class="fas fa-comment-alt"></i>
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-paperclip"></i>
                     <i class="fas fa-ellipsis-v"></i>
                 </div>
                 

@@ -19,26 +19,37 @@ img {
 .icon {
     color: #b1b1b1;
     font-size: 31px;
-    margin-top: 5%;
     display: flex;
     justify-content: space-between;
     width: 18%;
+    position: absolute;
+    top: 56%;
+    right: 1%;
+    transform: translate(0, -50%);
 }
 
 .section_rett {
-    height: 12%;
     width: 100%;
     padding: 10px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.dx {
-    justify-content: start;
+    min-height: 12%;
+    position: relative;
 }
 
 .icon i {
     cursor: pointer;
+}
+
+.icon_avatar {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.name_users {
+    position: absolute;
+    top: 50%;
+    left: 11%;
+    transform: translate(0, -140%);
 }
 
 /* tag per lo sfondo */
@@ -73,7 +84,7 @@ img {
 }
 
 #box_left img {
-    width: 10%;
+    width: 15%;
 }
 
 .color_section_above {
@@ -84,6 +95,12 @@ img {
     background-color: #8ddafc;
     padding: 14px 15px;
     justify-content: flex-start;
+}
+
+.text_notifiche {
+    position: absolute;
+    top: 20%;
+    left: 18%;
 }
 
 .color_notif span {
@@ -105,6 +122,14 @@ img {
     height: 5%;
     padding: 5px;
     background-color: #fafafa;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#ricerca .fas {
+    border: 1px solid lightgray;
+    border-right: none;
+    padding: 1%;
 }
 
 #ricerca input {
@@ -120,6 +145,12 @@ img {
     height: calc(100% - 29%);
 }
 
+.name_contact {
+    position: absolute;
+    left: 15%;
+    top: 20%;
+}
+
 .section_rett p  {
     font-size: 20px;
     margin-top: 4%;
@@ -131,6 +162,9 @@ img {
 
 .date_last_message {
     color: #b7bbbd;
+    position: absolute;
+    top: 10%;
+    right: 2%;
 }
 
 /* tag sezione delle chat */
@@ -147,7 +181,7 @@ img {
 }
 
 #chat {
-    padding-top: 100px;
+    padding-top: 50px;
     display: flex;
     flex-direction: column;
 }
