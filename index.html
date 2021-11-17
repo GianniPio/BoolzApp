@@ -79,7 +79,7 @@
                         <!--Contatto rubrica -->
                         <div class="text name_contact">
                             <p>{{contact.name}}</p>
-                            <span>{{contact.messages[contact.messages.length-1].text}}</span>
+                            <span class="last_message">{{contact.messages[contact.messages.length-1].text.slice(0,15)}}...</span>
                         </div>
 
                         <!-- Data ultimo messaggio -->
@@ -113,7 +113,7 @@
                     <!--Nome contatto e ultimo accesso-->
                     <div class="text name_contact">
                         <p>{{contacts[chatActive].name}}</p>
-                        <span>Ultimo accesso </span>
+                        <span>Ultimo accesso alle </span>
                     </div>
 
                 </div>
@@ -151,7 +151,7 @@
             <!-- Invio dei messaggi -->
             <div id="invio">
                 <i class="far fa-smile"></i>
-                <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage.text" @keyup.enter="invioNewMessage">
+                <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage.text" @keyup.enter="invioNewMessage(chatActive)">
                 <i class="fas fa-microphone"></i>
             </div>
 

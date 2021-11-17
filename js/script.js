@@ -14,7 +14,6 @@ var page = new Vue (
                 {
                     name: 'Michele',
                     avatar: 'img/avatar_1.jpg',
-                    visible: true,
                     messages: 
                     [
                         {
@@ -38,7 +37,6 @@ var page = new Vue (
                 {
                     name: 'Fabio',
                     avatar: 'img/avatar_2.jpg',
-                    visible: false,
                     messages: 
                     [
                         {
@@ -62,7 +60,6 @@ var page = new Vue (
                 {
                     name: 'Samuele',
                     avatar: 'img/avatar_3.jpg',
-                    visible: false,
                     messages: 
                     [
                         {
@@ -86,7 +83,6 @@ var page = new Vue (
                 {
                     name: 'Luisa',
                     avatar: 'img/avatar_4.jpg',
-                    visible: false,
                     messages: 
                     [
                         {
@@ -103,13 +99,12 @@ var page = new Vue (
                 },
             ],
 
-            newMessage: [
+            newMessage: 
                 {
-                    date: '',
-                    text: '',
+                    date: "",
+                    text: "",
                     status: 'sent'
-                }
-            ],
+                },
 
             chatActive: 0,
         },
@@ -124,18 +119,18 @@ var page = new Vue (
 
         },
 
-        // invioNewMessage() {
+        invioNewMessage(x) {
 
-        //     this.contacts.messages[contacts.messages.length-1].push(this.newMessage);
+            this.contacts[x].messages.push(this.newMessage);
 
-        //     this.newMessage [
-        //         {
-        //             date: '',
-        //             text: '',
-        //             status: 'sent'
-        //         }
-        //     ]
-        // }
+            this.newMessage =
+                {
+                    date: '',
+                    text: '',
+                    status: 'sent'
+                }
+            
+        }
 
     }
 )
