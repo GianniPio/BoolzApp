@@ -101,9 +101,16 @@ var page = new Vue (
 
             newMessage: 
                 {
-                    date: "",
+                    date: new Date().toLocaleString(),
                     text: "",
                     status: 'sent'
+                },
+
+            messageContact: 
+                {
+                    date: new Date().toLocaleString(),
+                    text: 'Ok!',
+                    status: 'received'
                 },
 
             chatActive: 0,
@@ -111,26 +118,35 @@ var page = new Vue (
 
         methods: {
 
-                changeChat(index) {
+            changeChat(index) {
 
-                this.chatActive = index;
+            this.chatActive = index;
+            },
 
+
+            invioNewMessage() {
+
+                if (this.newMessage.text !== "") {
+                    
+                    this.contacts[this.chatActive].messages.push(this.newMessage);
+
+                    this.newMessage =
+                    {
+                        date: new Date().toLocaleString(),
+                        text: '',
+                        status: 'sent'
+                    }
+
+                    setTimeout(() => {this.contacts[this.chatActive].messages.push(this.messageContact)}, 3000);
+                       
+                }
+                
+            
             }
 
         },
 
-        invioNewMessage() {
-
-            this.contacts[this.chatActive].messages.push(this.newMessage);
-
-            this.newMessage =
-                {
-                    date: '',
-                    text: '',
-                    status: 'sent'
-                }
-            
-        }
+        
 
     }
 )
