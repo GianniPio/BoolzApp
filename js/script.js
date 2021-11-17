@@ -119,9 +119,9 @@ var page = new Vue (
 
         },
 
-        invioNewMessage(x) {
+        invioNewMessage() {
 
-            this.contacts[x].messages.push(this.newMessage);
+            this.contacts[this.chatActive].messages.push(this.newMessage);
 
             this.newMessage =
                 {
