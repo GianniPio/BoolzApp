@@ -98,7 +98,7 @@
         </section>
 
         <!-- Sezione dei messaggi -->
-        <section id="box_right" v-for="contact, i in contacts" :key="i" v-if="i === chatActive">
+        <section id="box_right">
 
             <!-- Contatto -->
             <section class="section_rett color_section_above">
@@ -107,13 +107,13 @@
 
                     <!-- Immagine contatto -->
                     <figure>
-                        <img :src="contact.avatar" :alt="contact.name"> 
+                        <img :src="contacts[chatActive].avatar" :alt="contacts[chatActive].name"> 
                     </figure>
 
                     <!--Nome contatto e ultimo accesso-->
                     <div class="text name_contact">
-                        <p>{{contact.name}}</p>
-                        <span>Ultimo accesso {{contact.messages[contact.messages.length-1].date}}</span>
+                        <p>{{contacts[chatActive].name}}</p>
+                        <span>Ultimo accesso </span>
                     </div>
 
                 </div>
@@ -131,18 +131,18 @@
             <section id="chat">
 
                 <!-- Messaggi -->
-                    <div v-for="element, i in contact.messages" :key="i" v-if="element.status === 'sent'">
+                    <div v-for="message, i in contacts[chatActive].messages" v-if="message.status === 'sent'">
                        <div class="sent">
-                           <p class="message">{{element.text}}</p>
-                           <p class="data">{{element.date}}</p>
+                           <p class="message">{{message.text}}</p>
+                           <p class="data">{{message.date}}</p>
                         </div>
                        
                     </div>
 
-                    <div v-else="element.status === 'received'" >
+                    <div v-else="message.status === 'received'" >
                         <div class="received">
-                            <p class="message">{{element.text}}</p>
-                            <p class="data">{{element.date}}</p>
+                            <p class="message">{{message.text}}</p>
+                            <p class="data">{{message.date}}</p>
                          </div>
                     </div>
 

@@ -114,11 +114,11 @@ var page = new Vue (
             chatActive: 0,
         },
 
-        method: {
+        methods: {
 
-                changeChat: function() {
+                changeChat(index) {
 
-                this.chatActive++;
+                this.chatActive = index;
 
             }
 
