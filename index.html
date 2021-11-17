@@ -68,7 +68,7 @@
             <!-- Sezione contatti -->
             <section id="contact">
                 
-                <div class="section_rett" v-for="contact, i in contacts" :key="i" @click="changeVisible(i)">
+                <div class="section_rett" v-for="contact, i in contacts" :key="i" @click="changeChat(i)">
 
                     <div>
                         <!-- Immagine contatto -->
@@ -98,7 +98,7 @@
         </section>
 
         <!-- Sezione dei messaggi -->
-        <section id="box_right" v-for="contact, i in contacts" v-if="contact.visible">
+        <section id="box_right" v-for="contact, i in contacts">
 
             <!-- Contatto -->
             <section class="section_rett color_section_above">
@@ -151,7 +151,7 @@
             <!-- Invio dei messaggi -->
             <div id="invio">
                 <i class="far fa-smile"></i>
-                <input type="text" placeholder="Scrivi un messaggio">
+                <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage.text" @keyup.enter="invioNewMessage">
                 <i class="fas fa-microphone"></i>
             </div>
 

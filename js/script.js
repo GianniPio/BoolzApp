@@ -6,7 +6,7 @@ var page = new Vue (
                 {
                     name: 'Michele',
                     avatar: 'img/avatar_1.jpg',
-                    visible: false,
+                    visible: true,
                     messages: 
                     [
                         {
@@ -78,7 +78,7 @@ var page = new Vue (
                 {
                     name: 'Luisa',
                     avatar: 'img/avatar_4.jpg',
-                    visible: true,
+                    visible: false,
                     messages: 
                     [
                         {
@@ -93,20 +93,43 @@ var page = new Vue (
                         }
                     ],
                 },
-            ]
+            ],
+
+            newMessage: [
+                {
+                    date: '',
+                    text: '',
+                    status: 'sent'
+                }
+            ],
+
+            chatActive: 0,
         },
 
         method: {
 
-            changeVisible(index) {
+                changeChat: function(index) {
 
-                if(this.contacts[index].visible === false)
+                this.chatActive = index;
 
-                this.contacts[index].visible = true;
-                console.log(this.contacts[index].visible);
+                return chatActive;
             }
 
-        }
+        },
+
+        // invioNewMessage() {
+
+        //     this.contacts.messages[contacts.messages.length-1].push(this.newMessage);
+
+        //     this.newMessage [
+        //         {
+        //             date: '',
+        //             text: '',
+        //             status: 'sent'
+        //         }
+        //     ]
+        // }
 
     }
 )
+
