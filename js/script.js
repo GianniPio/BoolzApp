@@ -2,6 +2,14 @@ var page = new Vue (
     {
         el: '#box',
          data: {
+
+            user: [
+                {
+                name: 'Khal_Gianni',
+                avatar:'img/avatar_io.jpg',
+                }
+            ],
+
             contacts: [
                 {
                     name: 'Michele',
@@ -108,11 +116,10 @@ var page = new Vue (
 
         method: {
 
-                changeChat: function(index) {
+                changeChat: function() {
 
-                this.chatActive = index;
+                this.chatActive++;
 
-                return chatActive;
             }
 
         },
