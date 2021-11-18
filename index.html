@@ -68,7 +68,7 @@
             <!-- Sezione contatti -->
             <section id="contact">
                 
-                <div class="section_rett" v-for="contact, i in contacts" :key="i" @click="changeChat(i)" v-if="contact.name.includes(ricercaChat)">
+                <div class="section_rett" v-for="contact, i in contacts" :key="i" @click="changeChat(i)" v-if="contact.name.toLowerCase().includes(ricercaChat.toLowerCase())">
 
                     <div>
                         <!-- Immagine contatto -->
