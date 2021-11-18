@@ -1,8 +1,9 @@
 var page = new Vue (
     {
-        el: '#box',
+        el: '#box',  /*collegamento ad HTML */
          data: {
 
+            // array di oggetti (mio account)
             user: [
                 {
                 name: 'Khal_Gianni',
@@ -10,6 +11,7 @@ var page = new Vue (
                 }
             ],
 
+            // array di oggetti (contatti con messaggi)
             contacts: [
                 {
                     name: 'Michele',
@@ -99,6 +101,7 @@ var page = new Vue (
                 },
             ],
 
+            // Per la stampa del messaggio inviato
             newMessage: 
                 {
                     date: new Date().toLocaleString(),
@@ -106,30 +109,38 @@ var page = new Vue (
                     status: 'sent'
                 },
 
-            messageContact: 
+            // Per la stampa del messaggio ricevuto
+            messageContact:
                 {
                     date: new Date().toLocaleString(),
                     text: 'Ok!',
                     status: 'received'
                 },
 
+            // contatore usato per indicare la chat attiva
             chatActive: 0,
+            ricercaChat: "",
         },
 
         methods: {
 
+            // funzione che cambia il contatore
             changeChat(index) {
-
+            
+            // il contatore assume il valore di index
             this.chatActive = index;
             },
 
-
+            // funzione per mandare e ricevere messaggi
             invioNewMessage() {
 
+                // condizione per inviare il messaggio, la stringa non deve essere vuota
                 if (this.newMessage.text !== "") {
                     
+                    // pushare nell'array il nuovo messaggio mandato
                     this.contacts[this.chatActive].messages.push(this.newMessage);
 
+                    // il messaggio assume nuovamente il valore vuoto
                     this.newMessage =
                     {
                         date: new Date().toLocaleString(),
@@ -137,6 +148,7 @@ var page = new Vue (
                         status: 'sent'
                     }
 
+                    // dopo 3 secondi, pusha un messaggio ricevuto
                     setTimeout(() => {this.contacts[this.chatActive].messages.push(this.messageContact)}, 3000);
                        
                 }
