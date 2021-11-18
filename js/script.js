@@ -21,8 +21,8 @@ var page = new Vue (
                         {
                             date: '10/01/2020 15:30:55',
                             text: 'Hai portato a spasso il cane?',
-                            status: 'sent',
-                            visibleMinibox: false
+                            status: 'sent',  /* Messaggio inviato */
+                            visibleMinibox: false  /*Per il div usato per eliminare il messaggio*/
                         },
                         {
                             date: '10/01/2020 15:50:00',
@@ -33,7 +33,7 @@ var page = new Vue (
                         {
                             date: '10/01/2020 16:15:22',
                             text: 'Tutto fatto!',
-                            status: 'received',
+                            status: 'received',  /* Messaggio ricevuto */
                             visibleMinibox: false
                         }
                     ],
@@ -115,7 +115,7 @@ var page = new Vue (
             // Per la stampa del messaggio inviato
             newMessage: 
                 {
-                    date: new Date().toLocaleString(),
+                    date: new Date().toLocaleString(), /*Stampa ora e data attuale*/
                     text: "",
                     status: 'sent',
                     visibleMinibox: false
@@ -132,22 +132,25 @@ var page = new Vue (
 
             // contatore usato per indicare la chat attiva
             chatActive: 0,
+
+            // usato per salvare il valore durate la ricerca della chat
             ricercaChat: "",
         },
 
         methods: {
 
-            // funzione che cambia il contatore
+            // funzione che cambia il contatore, usata per indicare la chat attiva
             changeChat(index) {
             
-            // il contatore assume il valore di index
-            this.chatActive = index;
+            this.chatActive = index;  // il contatore assume il valore di index
+
             },
 
             // funzione per mandare e ricevere messaggi
             invioNewMessage() {
 
                 // condizione per inviare il messaggio, la stringa non deve essere vuota
+                // Se è vuota, non invia
                 if (this.newMessage.text !== "") {
                     
                     // pushare nell'array il nuovo messaggio mandato
@@ -161,27 +164,32 @@ var page = new Vue (
                         status: 'sent'
                     }
 
-                    // dopo 3 secondi, pusha un messaggio ricevuto
-                    setTimeout(() => {this.contacts[this.chatActive].messages.push(this.messageContact)}, 3000);
+                    // dopo 1 secondo, pusha un messaggio ricevuto
+                    setTimeout(() => {this.contacts[this.chatActive].messages.push(this.messageContact)}, 1000);
                        
                 }
                 
             
             },
 
+
+            // funzione che cambia il valore si visibleMinibox (per l'apparizione del box per eliminare il messagggio)
             changeVisible(numberMess) {
 
+                // tramite il percorso indico che se il visibleMibox di quel determinato messaggio (in posizione numberMess) nella chat attiva è vero, diventa falso
                 if (this.contacts[this.chatActive].messages[numberMess].visibleMinibox == true) {
                     
                     this.contacts[this.chatActive].messages[numberMess].visibleMinibox = false
                 } else {
-
+                    // o viceversa
                     this.contacts[this.chatActive].messages[numberMess].visibleMinibox = true;
                 }
             },
 
+            // funzione che elimina i messaggi
             eliminaMess(numberMess) {
 
+                // elimina il messaggio in posizione (numberMess) di quella chat attiva
                 this.contacts[this.chatActive].messages.splice(numberMess, 1);
 
             }

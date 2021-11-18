@@ -26,13 +26,13 @@
             <!-- Sezione mio account -->
             <section class="section_rett color_section_above">
 
-                <!-- Parte di destra -->
+                <!-- stampa dell'array User -->
                 <div>
 
                     <!-- Mia immagine -->
                     <figure class="icon_avatar">
 
-                        <!-- stampa il primo elemento dell'array User -->
+                        
                         <img :src="user[0].avatar" alt="Mia foto"> 
                     </figure>
 
@@ -64,12 +64,15 @@
             <!-- Sezione ricerca -->
             <section id="ricerca">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Cerca o inizia una nuova chat" id="barra_ricerca" v-model="ricercaChat">
+                <input type="text" placeholder="Cerca o inizia una nuova chat" id="barra_ricerca" v-model="ricercaChat"> <!-- Collegato al ricercaChat del data vue js-->
             </section>
 
             <!-- Sezione contatti -->
             <section id="contact">
                 
+                <!-- Crea un elemento contact e i (in questo modo ogni chat ha una key diversa) per ogni elemento figlio dell'array contacs -->
+                <!-- Tramite il click, fa apparire la chat selezionata, cambiando il valore di chatActive dando il valore di (i) -->
+                <!-- tramite la barra di ricerca, se ricercaChat è uguale al carattere di un contatto, appare la chat di quel contatto -->
                 <div class="section_rett" v-for="contact, i in contacts" :key="i" @click="changeChat(i)" v-if="contact.name.toLowerCase().includes(ricercaChat.toLowerCase())">
 
                     <div>
@@ -81,7 +84,7 @@
                         <!--Contatto rubrica -->
                         <div class="text name_contact">
                             <p>{{contact.name}}</p>
-                            <span class="last_message">{{contact.messages[contact.messages.length-1].text.slice(0,15)}}...</span>
+                            <span class="last_message">{{contact.messages[contact.messages.length-1].text.slice(0,15)}}...</span> <!--.splice serve per dare un max di caratteri visibili al testo--> 
                         </div>
 
                         <!-- Data ultimo messaggio -->
@@ -96,7 +99,6 @@
                 </div>
             </section>
 
-            
         </section>
 
         <!-- Sezione dei messaggi -->
@@ -133,22 +135,24 @@
             <section id="chat">
 
                 <!-- Messaggi -->
+                    <!-- se lo status del messaggio è sent -->
                     <div v-for="message, i in contacts[chatActive].messages" v-if="message.status === 'sent'">
                        <div class="sent">
-                           <p class="message">{{message.text}}</p>
-                           <i class="fas fa-chevron-down" @click="changeVisible(i)"></i>
-                           <div class="minibox" v-if="message.visibleMinibox == true">
+                           <p class="message">{{message.text}} {{i}}</p>
+                           <i class="fas fa-chevron-down" @click="changeVisible(i)"></i> <!--Al click, cambia visibleMinibox dall'array dei messaggi, tramite la funzione cangeVisible-->
+                           <div class="minibox" v-if="message.visibleMinibox == true"> <!--Il minibox appare solo se visibleMinibox è vero-->
                                <p>Info</p>
-                               <p @click="eliminaMess(i)">Elimina messaggio</p>
+                               <p @click="eliminaMess(i)">Elimina messaggio</p> <!--Eliminare il relativo messaggio tramite la funzione-->
                            </div>
                            <p class="data">{{message.date}}</p>
                         </div>
                        
                     </div>
 
+                    <!-- se invece lo status del messaggio è received -->
                     <div v-else="message.status === 'received'" >
                         <div class="received">
-                            <p class="message">{{message.text}}</p>
+                            <p class="message">{{message.text}} {{i}}</p>
                             <i class="fas fa-chevron-down" @click="changeVisible(i)"></i>
                            <div class="minibox" v-if="message.visibleMinibox == true">
                                <p>Info</p>
