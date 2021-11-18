@@ -29,9 +29,7 @@ img {
 }
 
 .section_rett {
-    width: 100%;
     padding: 10px;
-    min-height: 12%;
     position: relative;
 }
 
@@ -46,10 +44,8 @@ img {
 }
 
 .name_users {
-    position: absolute;
-    top: 50%;
-    left: 11%;
-    transform: translate(0, -140%);
+    line-height: 20px;
+    margin-left: 70px;
 }
 
 /* tag per lo sfondo */
@@ -89,18 +85,18 @@ img {
 
 .color_section_above {
     background-color: #eaeaea;
+    height: 12%;
 }
 
 .color_notif {
     background-color: #8ddafc;
     padding: 14px 15px;
-    justify-content: flex-start;
 }
 
 .text_notifiche {
     position: absolute;
     top: 20%;
-    left: 18%;
+    left: 25%;
 }
 
 .color_notif span {
@@ -119,7 +115,7 @@ img {
 
 #ricerca {
     width: 100%;
-    height: 5%;
+    height: 40px;
     padding: 5px;
     background-color: #fafafa;
     display: flex;
@@ -130,6 +126,7 @@ img {
     border: 1px solid lightgray;
     border-right: none;
     padding: 1%;
+    height: 100%;
 }
 
 #ricerca input {
@@ -143,13 +140,15 @@ img {
 #contact {
     background-color: white;
     width: 100%;
-    height: calc(100% - 29%);
+    overflow-y: hidden;
+    height: calc(100% - 213px);
 }
 
 .name_contact {
     position: absolute;
     left: 15%;
     top: 20%;
+    margin-left: 20px;
 }
 
 .last_message {
@@ -164,6 +163,7 @@ img {
 
 #contact > .section_rett {
     border-top: 1px solid #b7bbbd;
+    height: 70px;
 }
 
 .date_last_message {
@@ -183,32 +183,59 @@ img {
     position: relative;
 }
 
+#box_right .name_contact {
+    left: 8%;
+}
+
 #box_right img {
     width: 7%;
 }
 
 #chat {
     padding-top: 50px;
-    display: flex;
-    flex-direction: column;
+    height: 79%;
+    overflow-y: auto;
+}
+
+.minibox {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    width: auto;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px 0px 10px 10px;
+    z-index: 999;
+}
+
+.sent i, .received i {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.minibox p {
+    margin: 5px;
 }
 
 .sent {
     background-color: #d5f9ba;
     margin-left: 60%;
     margin-right: 10%;
+    border-radius: 10px 10px 0 10px;
 }
 
 .received {
     background-color:white;
     margin-left: 10%;
     margin-right: 60%;
+    border-radius: 10px 10px 10px 0;
 }
 
 .sent, .received {
     min-height: 50px;
     max-width: 300px;
-    border-radius: 10px;
     margin-top: 10px;
     position: relative;
 }
@@ -234,7 +261,7 @@ img {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 10%;
+    height: 9%;
     align-items: center;
 }
 
@@ -256,6 +283,11 @@ img {
 #contact .section_rett:hover {
     background-color: hsl(0, 8%, 88%);
     cursor: pointer;
+}
+
+.minibox p:hover {
+    cursor: pointer;
+    background-color: hsl(0, 8%, 88%);
 }
 
 

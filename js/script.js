@@ -21,17 +21,20 @@ var page = new Vue (
                         {
                             date: '10/01/2020 15:30:55',
                             text: 'Hai portato a spasso il cane?',
-                            status: 'sent'
+                            status: 'sent',
+                            visibleMinibox: false
                         },
                         {
                             date: '10/01/2020 15:50:00',
                             text: 'Ricordati di dargli da mangiare',
-                            status: 'sent'
+                            status: 'sent',
+                            visibleMinibox: false
                         },
                         {
                             date: '10/01/2020 16:15:22',
                             text: 'Tutto fatto!',
-                            status: 'received'
+                            status: 'received',
+                            visibleMinibox: false
                         }
                     ],
                 },
@@ -44,17 +47,20 @@ var page = new Vue (
                         {
                             date: '20/03/2020 16:30:00',
                             text: 'Ciao come stai?',
-                            status: 'sent'
+                            status: 'sent',
+                            visibleMinibox: false
                         },
                         {
                             date: '20/03/2020 16:30:55',
                             text: 'Bene grazie! Stasera ci vediamo?',
-                            status: 'received'
+                            status: 'received',
+                            visibleMinibox: false
                         },
                         {
                             date: '20/03/2020 16:35:00',
                             text: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                            status: 'sent'
+                            status: 'sent',
+                            visibleMinibox: false
                         }
                     ],
                 },
@@ -67,17 +73,20 @@ var page = new Vue (
                         {
                             date: '28/03/2020 10:10:40',
                             text: 'La Marianna va in campagna',
-                            status: 'received'
+                            status: 'received',
+                            visibleMinibox: false
                         },
                         {
                             date: '28/03/2020 10:20:10',
                             text: 'Sicuro di non aver sbagliato chat?',
-                            status: 'sent'
+                            status: 'sent',
+                            visibleMinibox: false
                         },
                         {
                             date: '28/03/2020 16:15:22',
                             text: 'Ah scusa!',
-                            status: 'received'
+                            status: 'received',
+                            visibleMinibox: false
                         }
                     ],
                 },
@@ -90,12 +99,14 @@ var page = new Vue (
                         {
                             date: '10/01/2020 15:30:55',
                             text: 'Lo sai che ha aperto una nuova pizzeria?',
-                            status: 'sent'
+                            status: 'sent',
+                            visibleMinibox: false
                         },
                         {
                             date: '10/01/2020 15:50:00',
                             text: 'Si, ma preferirei andare al cinema',
-                            status: 'received'
+                            status: 'received',
+                            visibleMinibox: false
                         }
                     ],
                 },
@@ -106,7 +117,8 @@ var page = new Vue (
                 {
                     date: new Date().toLocaleString(),
                     text: "",
-                    status: 'sent'
+                    status: 'sent',
+                    visibleMinibox: false
                 },
 
             // Per la stampa del messaggio ricevuto
@@ -114,7 +126,8 @@ var page = new Vue (
                 {
                     date: new Date().toLocaleString(),
                     text: 'Ok!',
-                    status: 'received'
+                    status: 'received',
+                    visibleMinibox: false
                 },
 
             // contatore usato per indicare la chat attiva
@@ -154,6 +167,23 @@ var page = new Vue (
                 }
                 
             
+            },
+
+            changeVisible(numberMess) {
+
+                if (this.contacts[this.chatActive].messages[numberMess].visibleMinibox == true) {
+                    
+                    this.contacts[this.chatActive].messages[numberMess].visibleMinibox = false
+                } else {
+
+                    this.contacts[this.chatActive].messages[numberMess].visibleMinibox = true;
+                }
+            },
+
+            eliminaMess(numberMess) {
+
+                this.contacts[this.chatActive].messages.splice(numberMess, 1);
+
             }
 
         },

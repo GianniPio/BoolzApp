@@ -31,6 +31,8 @@
 
                     <!-- Mia immagine -->
                     <figure class="icon_avatar">
+
+                        <!-- stampa il primo elemento dell'array User -->
                         <img :src="user[0].avatar" alt="Mia foto"> 
                     </figure>
 
@@ -113,7 +115,7 @@
                     <!--Nome contatto e ultimo accesso-->
                     <div class="text name_contact">
                         <p>{{contacts[chatActive].name}}</p>
-                        <span>Ultimo accesso alle </span>
+                        <span>Ultimo accesso alle</span>
                     </div>
 
                 </div>
@@ -134,6 +136,11 @@
                     <div v-for="message, i in contacts[chatActive].messages" v-if="message.status === 'sent'">
                        <div class="sent">
                            <p class="message">{{message.text}}</p>
+                           <i class="fas fa-chevron-down" @click="changeVisible(i)"></i>
+                           <div class="minibox" v-if="message.visibleMinibox == true">
+                               <p>Info</p>
+                               <p @click="eliminaMess(i)">Elimina messaggio</p>
+                           </div>
                            <p class="data">{{message.date}}</p>
                         </div>
                        
@@ -142,6 +149,11 @@
                     <div v-else="message.status === 'received'" >
                         <div class="received">
                             <p class="message">{{message.text}}</p>
+                            <i class="fas fa-chevron-down" @click="changeVisible(i)"></i>
+                           <div class="minibox" v-if="message.visibleMinibox == true">
+                               <p>Info</p>
+                               <p @click="eliminaMess(i)">Elimina messaggio</p>
+                           </div>
                             <p class="data">{{message.date}}</p>
                          </div>
                     </div>
