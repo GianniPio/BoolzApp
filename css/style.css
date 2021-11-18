@@ -137,6 +137,7 @@ img {
     width: 90%;
     border: 1px solid lightgray;
     border-left: none;
+    padding-left: 10px;
 }
 
 #contact {

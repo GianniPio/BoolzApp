@@ -62,13 +62,13 @@
             <!-- Sezione ricerca -->
             <section id="ricerca">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Cerca o inizia una nuova chat" id="barra_ricerca">
+                <input type="text" placeholder="Cerca o inizia una nuova chat" id="barra_ricerca" v-model="ricercaChat">
             </section>
 
             <!-- Sezione contatti -->
             <section id="contact">
                 
-                <div class="section_rett" v-for="contact, i in contacts" :key="i" @click="changeChat(i)">
+                <div class="section_rett" v-for="contact, i in contacts" :key="i" @click="changeChat(i)" v-if="contact.name.includes(ricercaChat)">
 
                     <div>
                         <!-- Immagine contatto -->
