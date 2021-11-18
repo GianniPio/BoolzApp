@@ -136,9 +136,9 @@
 
                 <!-- Messaggi -->
                     <!-- se lo status del messaggio è sent -->
-                    <div v-for="message, i in contacts[chatActive].messages" v-if="message.status === 'sent'">
-                       <div class="sent">
-                           <p class="message">{{message.text}} {{i}}</p>
+                    <div v-for="message, i in contacts[chatActive].messages">
+                       <div :class="message.status">
+                           <p class="message">{{message.text}}</p>
                            <i class="fas fa-chevron-down" @click="changeVisible(i)"></i> <!--Al click, cambia visibleMinibox dall'array dei messaggi, tramite la funzione cangeVisible-->
                            <div class="minibox" v-if="message.visibleMinibox == true"> <!--Il minibox appare solo se visibleMinibox è vero-->
                                <p>Info</p>
@@ -147,19 +147,6 @@
                            <p class="data">{{message.date}}</p>
                         </div>
                        
-                    </div>
-
-                    <!-- se invece lo status del messaggio è received -->
-                    <div v-else="message.status === 'received'" >
-                        <div class="received">
-                            <p class="message">{{message.text}} {{i}}</p>
-                            <i class="fas fa-chevron-down" @click="changeVisible(i)"></i>
-                           <div class="minibox" v-if="message.visibleMinibox == true">
-                               <p>Info</p>
-                               <p @click="eliminaMess(i)">Elimina messaggio</p>
-                           </div>
-                            <p class="data">{{message.date}}</p>
-                         </div>
                     </div>
 
             </section>
