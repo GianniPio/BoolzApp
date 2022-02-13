@@ -142,6 +142,7 @@ img {
     width: 100%;
     overflow-y: hidden;
     height: calc(100% - 213px);
+    overflow: auto;
 }
 
 .name_contact {
